@@ -5,15 +5,15 @@ function logger(req, res, next) {
   return next();
 }
 
-function checkForPassword(req, res, next) {
-  try {
-    if (req.query.password !== 'monkeybreath') {
+function checkForPassword(req, res, next){
+  try{
+    if(req.query.password !== 'monkeybreath'){
       throw new ExpressError("Missing Password", 402);
     } else {
-      return next()
+      next();
     }
-  } catch (e) {
-    return next(e)
+  } catch(e){
+    return next(e);
   }
 }
 

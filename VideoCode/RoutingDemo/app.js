@@ -12,15 +12,15 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 
-app.use('/users', userRoutes)
-app.get('/favicon.ico', (req, res) => res.sendStatus(204))
+app.use('/users', userRoutes);
+app.use('/favicon.ico', (req, res) => res.sendStatus(204))
 
 app.get('/secret', middleware.checkForPassword, (req, res, next) => {
-  return res.send("I LOVE YOU <3 FOR REAL MARRY ME")
+    return res.send("I LOVE YOU")   
 })
 
 app.get('/private', middleware.checkForPassword, (req, res, next) => {
-  return res.send("YOU HAVE REACHED THE PRIVATE PAGE.  IT IS PRIVATE.")
+  return res.send("You have reached the private page")  
 })
 
 // 404 handler
