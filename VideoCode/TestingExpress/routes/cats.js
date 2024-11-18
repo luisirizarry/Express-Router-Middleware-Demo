@@ -4,7 +4,7 @@ const ExpressError = require("../expressError")
 const cats = require("../fakeDb")
 
 router.get("/", function (req, res) {
-  res.json({ cats })
+  return res.json({ cats })
 })
 
 router.post("/", function (req, res, next) {
@@ -23,7 +23,7 @@ router.get("/:name", function (req, res) {
   if (foundCat === undefined) {
     throw new ExpressError("Cat not found", 404)
   }
-  res.json({ cat: foundCat })
+  return res.json({ cat: foundCat })
 })
 
 router.patch("/:name", function (req, res) {
@@ -32,7 +32,7 @@ router.patch("/:name", function (req, res) {
     throw new ExpressError("Cat not found", 404)
   }
   foundCat.name = req.body.name
-  res.json({ cat: foundCat })
+  return res.json({ cat: foundCat })
 })
 
 router.delete("/:name", function (req, res) {
@@ -41,7 +41,7 @@ router.delete("/:name", function (req, res) {
     throw new ExpressError("Cat not found", 404)
   }
   cats.splice(foundCat, 1)
-  res.json({ message: "Deleted" })
+  return res.json({ message: "Deleted" })
 })
 
 module.exports = router;
