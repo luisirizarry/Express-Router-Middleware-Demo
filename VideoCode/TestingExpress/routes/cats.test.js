@@ -72,9 +72,3 @@ describe("/DELETE /cats:name", () => {
     expect(res.body).toEqual({ error: "Cat not found" });
   })
 });
-
-describe("", () => {
-  test("", async () => {
-
-  });
-});
